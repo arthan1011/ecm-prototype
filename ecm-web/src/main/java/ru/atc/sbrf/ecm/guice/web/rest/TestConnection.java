@@ -2,7 +2,7 @@ package ru.atc.sbrf.ecm.guice.web.rest;
 
 
 import com.google.inject.Inject;
-import ru.atc.sbrf.ecm.guice.web.service.SomeService;
+import ru.atc.sbrf.ecm.guice.core.service.SomeService;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

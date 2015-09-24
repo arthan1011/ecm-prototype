@@ -43,6 +43,12 @@
             <version>1.0.4</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>ru.atc.sbrf</groupId>
+            <artifactId>ecm-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>

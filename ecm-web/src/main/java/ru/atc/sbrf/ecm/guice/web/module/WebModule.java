@@ -1,8 +1,8 @@
 package ru.atc.sbrf.ecm.guice.web.module;
 
 import com.google.inject.AbstractModule;
-import ru.atc.sbrf.ecm.guice.web.service.SomeService;
-import ru.atc.sbrf.ecm.guice.web.service.impl.SomeServiceImpl;
+import ru.atc.sbrf.ecm.guice.core.service.SomeService;
+import ru.atc.sbrf.ecm.guice.core.service.impl.SomeServiceImpl;
 
 /**
  * Created by ashamsiev on 24.09.2015

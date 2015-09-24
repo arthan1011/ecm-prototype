@@ -1,4 +1,4 @@
-package ru.atc.sbrf.ecm.guice.web.service;
+package ru.atc.sbrf.ecm.guice.core.service;
 
 /**
  * Created by ashamsiev on 24.09.2015
