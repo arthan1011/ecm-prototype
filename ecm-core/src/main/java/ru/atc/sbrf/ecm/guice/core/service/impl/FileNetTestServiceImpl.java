@@ -5,6 +5,7 @@ import com.filenet.api.core.*;
 import com.filenet.api.property.FilterElement;
 import com.filenet.api.property.PropertyFilter;
 import com.filenet.api.util.Id;
+import ru.atc.sbrf.ecm.guice.core.fnservice.SearchDocumentService;
 import ru.atc.sbrf.ecm.guice.core.model.FnDocument;
 import ru.atc.sbrf.ecm.guice.core.service.FileNetTestService;
 import ru.atc.sbrf.ecm.guice.core.fnservice.HierarchyService;
@@ -20,18 +21,26 @@ public class FileNetTestServiceImpl implements FileNetTestService {
 
     private HierarchyService hierarchyService;
     private RepositoryService repositoryService;
+    private SearchDocumentService searchDocumentService;
 
     @Inject
-    public FileNetTestServiceImpl(HierarchyService hierarchyService, RepositoryService repositoryService) {
+    public FileNetTestServiceImpl(HierarchyService hierarchyService,
+                                  RepositoryService repositoryService,
+                                  SearchDocumentService searchDocumentService) {
         this.hierarchyService = hierarchyService;
         this.repositoryService = repositoryService;
+        this.searchDocumentService = searchDocumentService;
     }
 
     public static final PropertyFilter ID_FILTER = new PropertyFilter();
     static {
         ID_FILTER.addIncludeProperty(
-                new FilterElement(null, null, null, "ID", null)
+                new FilterElement(null, null, null, PropertyNames.ID, null)
         );
+    }
+
+    public void printNames() {
+        searchDocumentService.printDocumentTitles();
     }
 
     public String createAndFileDocument(String documentName) {
@@ -52,7 +61,7 @@ public class FileNetTestServiceImpl implements FileNetTestService {
      * @param document first parameter
      * @param rcr second parameter
      */
-    private void saveChanges(IndependentlyPersistableObject document, IndependentlyPersistableObject rcr) {
+    public void saveChanges(IndependentlyPersistableObject document, IndependentlyPersistableObject rcr) {
         UpdatingBatch updatingBatch = UpdatingBatch.createUpdatingBatchInstance(repositoryService.getObjectStore().get_Domain(), RefreshMode.REFRESH);
         updatingBatch.add(document, ID_FILTER);
         updatingBatch.add(rcr, null);

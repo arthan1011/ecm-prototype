@@ -8,6 +8,8 @@ import ru.atc.sbrf.ecm.guice.core.model.FnDocument;
 public interface FileNetTestService {
 
 
+    void printNames();
+
     /**
      *
      * @param documentName name of document to be created

@@ -36,4 +36,11 @@ public class FileNetServiceTest {
 
         assertEquals("Document wasn't properly created for the given name.", DOCUMENT_NAME, document.getName());
     }
+
+    @Test
+    public void testSearch() throws Exception {
+
+        FileNetTestService fnService = fileNetTestService;
+        fnService.printNames();
+    }
 }
